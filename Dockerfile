@@ -10,8 +10,8 @@ RUN mkdir -p build-out/
 #RUN cp target/release/rathole build-out/
 RUN pwd
 RUN tree
-RUN cp target/release/config.toml build-out/
-#COPY examples/unified/config.toml build-out/
+#RUN cp target/release/config.toml build-out/
+COPY examples/unified/config.toml build-out/
 #RUN cp examples/unified/config.toml build-out/
 
 FROM scratch
