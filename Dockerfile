@@ -23,5 +23,6 @@ COPY --from=builder /home/rust/src/build-out/config.toml /app/config.toml
 #RUN echo YES!
 
 USER 1000:1000
+EXPOSE 2333 5202
 ENTRYPOINT ["./rathole"]
 CMD ["--server", "/app/config.toml"]
