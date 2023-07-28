@@ -5,9 +5,11 @@ COPY . .
 RUN cargo build --locked --release --features client,server,noise,hot-reload
 RUN mkdir -p build-out/
 RUN cp target/release/rathole build-out/
+RUN cp examples/unified/config.toml build-out/
 
 FROM scratch
 WORKDIR /app
 COPY --from=builder /home/rust/src/build-out/rathole .
 USER 1000:1000
 ENTRYPOINT ["./rathole"]
+CMD ["--server", "/app/config.toml"]
