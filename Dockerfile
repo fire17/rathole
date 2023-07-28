@@ -12,7 +12,7 @@ RUN cp target/release/rathole build-out/
 FROM scratch
 WORKDIR /app
 COPY --from=builder /home/rust/src/build-out/rathole .
-COPY --from=builder /home/rust/src/build-out/config.toml .
+COPY --from=builder /home/rust/src/build-out/config.toml /app/config.toml
 
 USER 1000:1000
 ENTRYPOINT ["./rathole"]
