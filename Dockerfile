@@ -10,7 +10,7 @@ COPY . .
 
 FROM scratch
 WORKDIR /app
-COPY --from=builder /home/rust/src/build-out/rathole .
+#COPY --from=builder /home/rust/src/build-out/rathole .
 #COPY --from=builder /home/rust/src/build-out/config.toml /app/config.toml
 COPY examples/unified/config.toml /app/config.toml
 RUN echo "YES!"
