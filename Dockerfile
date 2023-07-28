@@ -5,8 +5,10 @@ COPY . .
 
 #RUN cargo build --locked --release --features client,server,noise,hot-reload
 RUN mkdir -p build-out/
+
 #RUN cp target/release/rathole build-out/
-RUN cp examples/unified/config.toml build-out/
+COPY examples/unified/config.toml build-out/
+#RUN cp examples/unified/config.toml build-out/
 
 FROM scratch
 WORKDIR /app
